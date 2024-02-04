@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Projeto</title>
+</head>
+
+<body>
+    <header id="profile">
+        <div class="info-profile">
+            <h1>Josias Filipe Gomes da Silva</h1>
+            <div class="contact-info">
+                <h3>E-mail:</h3>
+                <h3>Phone:</h3>
+            </div>
+        </div>
+        <div class="container">
+            <div class="box-profile">
+                <div class="courses">
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="courses">
+                    <h3>SpringBoot</h3>
+                </div>
+                <div class="courses">
+                    <h3>HTML/CSS</h3>
+                </div>
+                <div class="courses" id="pythonCourse">
+                    <h3>Python</h3>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            var pythonCourse = $("#pythonCourse");
+
+            function movePython() {
+                var headerWidth = $("#profile").width();
+                var pythonWidth = pythonCourse.width();
+
+                pythonCourse.css("left", headerWidth + "px");
+
+                pythonCourse.animate({
+                    left: -pythonWidth + "px"
+                }, 10000, "linear", function () {
+                    movePython();
+                });
+            }
+
+            movePython();
+        });
+
+
+    </script>
+
+</body>
+
+</html>
